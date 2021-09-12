@@ -1,0 +1,105 @@
+.header {
+    background: url("../images/header-bg.jpg") no-repeat center / cover;
+    width: 100%;
+    min-height: 1080px;
+    &-top {
+        @include flexbox((
+            justify-content: space-between,
+            align-items: baseline
+        ));
+        padding-top: 54px;
+    }
+    &-top__logo {
+        font-weight: bold;
+        font-size: 36px;
+        color: $dark-color;
+        text-decoration: none;
+        display: inline-block;
+        span {
+            font-weight: 300;
+        }
+    }
+    &-top__bars {
+        color: $light-color;
+        cursor: pointer;
+        font-size: 28px;
+        display: none !important;
+    }
+    &-top__menu {
+        list-style-type: none;
+    }
+    &-top__items {
+        display: inline-block;
+        &:not(:first-child) {
+            margin-left: 34px;
+        }
+    }
+    &-top__link {
+        font-size: 18px;
+        font-weight: 400;
+        color: $dark-color;
+        text-decoration: none;
+        &--border {
+            border: 1.5px solid #424344;
+            border-radius: 28px;
+            padding: 10px 22px;
+        }
+    }
+    &-content {
+        max-width: 610px;
+        margin: 0 auto;
+        padding-top: 215px;
+        text-align: center;
+    }
+  
+    .gap {
+        padding-top: 54px;
+    }
+    @include maxWidth(1023px) {
+        background: linear-gradient(
+      to bottom,
+      rgba(#000, 0.4),
+      rgba(#000, 0.4)
+    ),
+    url("../images/header-bg.jpg") no-repeat center / cover;
+        min-height: auto;
+        &-top {
+            padding-top: 40px;
+        }
+        &-top__logo {
+            font-size: 25px;
+        }
+        &-top__bars {
+            display: block !important;
+        }
+        &-top__menu {
+            @include bgc(white);
+            @include size(100%);
+            max-width: 350px;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            z-index: 99999;
+            @include flexbox((
+                flex-direction: column
+            ));
+        }
+        &-top__items:not(:nth-child(9999)) {
+            margin-left: 0;
+            padding: 20px;
+        }
+        &-top__link--border {
+            border: none;
+            padding: 0;
+        }
+        &-content {
+            padding: 150px 0;
+        }
+        .text {
+            color: white;
+        }
+    }
+    @include maxWidth(767px) {
+        
+    }
+}

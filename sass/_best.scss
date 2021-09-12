@@ -1,0 +1,57 @@
+.best {
+    margin-top: -150px;
+    @include flexbox((
+        justify-content: space-between
+    ));
+    &-items {
+        padding: 126px 75px;
+        width: 50%;
+        background: linear-gradient(
+      to bottom,
+      rgba(#000, 0.8),
+      rgba(#000, 0.8)
+    ),
+    url("../images/best-1.jpg") no-repeat center / cover;
+    &:nth-child(2) {
+        background: linear-gradient(
+      to bottom,
+      rgba(#000, 0.8),
+      rgba(#000, 0.8)
+    ),
+    url("../images/best-2.jpg") no-repeat center / cover;
+    }
+    }
+    &-content {
+        max-width: 580px;
+        color: $light-color;
+    }
+    .heading {
+        margin-bottom: 10px;
+        color: $light-color;
+        font-weight: 300;
+        span {
+            font-weight: bold;
+        }
+    }
+    .text {
+        color: inherit;
+    }
+    .btn {
+        margin-top: 30px;
+    }
+    @include maxWidth(1023px) {
+        margin-top: 0;
+        display: block;
+        &-items {
+            padding: 80px 75px;
+            width: 100%;
+        }
+    }
+    @include maxWidth(767px) {
+       
+        &-items {
+            padding: 50px;
+            width: 100%;
+        }
+    }
+}
