@@ -1,64 +1,80 @@
 .wedo {
+    --mb-wedo: 71px;
+    padding-top: 94px;
     text-align: center;
-    padding-top: 90px;
-    &__container {
-        @include flexbox((justify-content: space-between));
-        padding-top: 100px;
+    &-list {
+        margin-bottom: calc(var(--mb-wedo) * (-1));
+        padding-top: 90px;
+        @include flexbox((
+            justify-content: space-between,
+            flex-wrap: wrap
+        ));
     }
-    &-column:first-child {
-        padding-right: 155px;
+    &-list__items {
+        @include flexbox((
+            justify-content: space-between
+        ));
+        width: calc(50% - 77.5px);
+        margin-bottom: var(--mb-wedo);
     }
-    &-column__items {
-        margin-bottom: 80px;
-        @include flexbox((justify-content: space-between));
+    &-list__image {
+        width: 325px;
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
     }
-    &-column__image {
+    &-list__intro {
+        @include flexbox((
+            flex-direction: column,
+            justify-content: space-between
+            ));
         height: 100%;
-        object-fit: cover;
-    }
-    &-intro {
+        padding-left: 45px;
         text-align: left;
-        padding-left: 44px;
-    }
-    .wedo-intro .heading {
-        font-size: 30px;
-        margin-bottom: 20px;
-    }
-    .heading {
-        font-size: 48px;
     }
     .gap {
         padding-top: 100px;
     }
+    .wedo-list__intro .heading {
+        @include lineClamp();
+        font-size: 30px;
+        margin-bottom: 18px;
+    }
+    .wedo-list__intro .text {
+        font-size: 18px;
+    }
     @include maxWidth(1023px) {
         padding-top: 60px;
-        &__container {
-            padding-top: 60px;
-            display: block;
+        &-list {
+        padding-top: 60px;
+        display: block;
         }
-        &-column:first-child {
-            padding: 0;
+        &-list__items {
+            width: 100%;
         }
-        .heading {
-            font-size: 32px;
+        &-list__image {
+            max-width: 150px;
         }
-        .wedo-intro .heading {
-            font-size: 24px;
-            margin-bottom: 20px;
+        .gap {
+            padding-top: 50px;
+        }
+        .wedo-list__intro .heading {
+            font-size: 18px;
+        }
+        .wedo-list__intro .text {
+            font-size: 16px;
         }
     }
     @include maxWidth(767px) {
-        &-column__image {
-            @include size(20%, 100%);
+        &-list__intro {
+            padding-left: 20px;
         }
-        &-intro {
-            padding-left: 25px;
+        .wedo-list__intro .heading {
+            font-size: 16px;
         }
-        .heading {
-            font-size: 20px;
-        }
-        .wedo-intro .heading {
-            font-size: 18px;
+        .wedo-list__intro .text {
+            font-size: 14px;
         }
     }
 }

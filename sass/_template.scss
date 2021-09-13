@@ -7,7 +7,7 @@
   );
 
   &-items {
-    @include size(33.3333%, 480px);
+    width: 33.3333%;
     position: relative;
     cursor: pointer;
 
@@ -30,6 +30,7 @@
   }
 
   &-content {
+    padding: 90px 100px;
     transition: all linear 0.4s;
     opacity: 0;
     color: $light-color;
@@ -46,7 +47,6 @@
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.5);
-    padding: 90px 100px;
     text-align: center;
   }
 
@@ -63,9 +63,22 @@
     color: inherit;
     @include lineClamp(3);
   }
+  @include maxWidth(1600px) {
+    &-content {
+      padding: 20px 50px;
+    }
+  }
   @include maxWidth(1279px) {
     &-content {
-      display: none
+      padding: 8px 20px;
+    }
+    .heading {
+      font-size: 20px;
+    }
+  
+    .text {
+      font-size: 16px;
+      margin-bottom: 25px;
     }
   }
   @include maxWidth(1023px) {

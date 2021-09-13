@@ -5,6 +5,7 @@
 }
 
 body {
+  font-size: 16px;
   line-height: 1;
   font-family: "Roboto", sans-serif;
 }
@@ -58,7 +59,7 @@ body {
   justify-content: center;
   text-decoration: none;
   border-radius: 40px;
-  height: 50px;
+  min-height: 50px;
   padding: 0 50px;
   color: #fff;
   background-image: linear-gradient(to left, #4b007c, #b40084);
@@ -66,7 +67,7 @@ body {
 }
 @media only screen and (max-width: 767px) {
   .btn {
-    height: 40px;
+    min-height: 40px;
     font-size: 14px;
     padding: 0px 32px;
   }
@@ -187,7 +188,7 @@ body {
   flex-wrap: nowrap;
 }
 .best-items {
-  padding: 126px 75px;
+  padding: 123px 75px;
   width: 50%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../images/best-1.jpg") no-repeat center/cover;
 }
@@ -212,13 +213,17 @@ body {
 .best .btn {
   margin-top: 30px;
 }
+@media only screen and (max-width: 1439px) {
+  .best-items {
+    padding: 80px 75px;
+  }
+}
 @media only screen and (max-width: 1023px) {
   .best {
     margin-top: 0;
     display: block;
   }
   .best-items {
-    padding: 80px 75px;
     width: 100%;
   }
 }
@@ -230,78 +235,94 @@ body {
 }
 
 .wedo {
+  --mb-wedo: 71px;
+  padding-top: 94px;
   text-align: center;
+}
+.wedo-list {
+  margin-bottom: calc(var(--mb-wedo) * (-1));
   padding-top: 90px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-.wedo__container {
+.wedo-list__items {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
   flex-direction: row;
   flex-wrap: nowrap;
-  padding-top: 100px;
+  width: calc(50% - 77.5px);
+  margin-bottom: var(--mb-wedo);
 }
-.wedo-column:first-child {
-  padding-right: 155px;
+.wedo-list__image {
+  width: 325px;
 }
-.wedo-column__items {
-  margin-bottom: 80px;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-.wedo-column__image {
-  height: 100%;
+.wedo-list__image img {
+  width: 100%;
   object-fit: cover;
 }
-.wedo-intro {
+.wedo-list__intro {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  padding-left: 45px;
   text-align: left;
-  padding-left: 44px;
-}
-.wedo .wedo-intro .heading {
-  font-size: 30px;
-  margin-bottom: 20px;
-}
-.wedo .heading {
-  font-size: 48px;
 }
 .wedo .gap {
   padding-top: 100px;
+}
+.wedo .wedo-list__intro .heading {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+.wedo .wedo-list__intro .text {
+  font-size: 18px;
 }
 @media only screen and (max-width: 1023px) {
   .wedo {
     padding-top: 60px;
   }
-  .wedo__container {
+  .wedo-list {
     padding-top: 60px;
     display: block;
   }
-  .wedo-column:first-child {
-    padding: 0;
+  .wedo-list__items {
+    width: 100%;
   }
-  .wedo .heading {
-    font-size: 32px;
+  .wedo-list__image {
+    max-width: 150px;
   }
-  .wedo .wedo-intro .heading {
-    font-size: 24px;
-    margin-bottom: 20px;
+  .wedo .gap {
+    padding-top: 50px;
+  }
+  .wedo .wedo-list__intro .heading {
+    font-size: 18px;
+  }
+  .wedo .wedo-list__intro .text {
+    font-size: 16px;
   }
 }
 @media only screen and (max-width: 767px) {
-  .wedo-column__image {
-    width: 20%;
-    height: 100%;
+  .wedo-list__intro {
+    padding-left: 20px;
   }
-  .wedo-intro {
-    padding-left: 25px;
+  .wedo .wedo-list__intro .heading {
+    font-size: 16px;
   }
-  .wedo .heading {
-    font-size: 20px;
-  }
-  .wedo .wedo-intro .heading {
-    font-size: 18px;
+  .wedo .wedo-list__intro .text {
+    font-size: 14px;
   }
 }
 
@@ -315,7 +336,6 @@ body {
 }
 .template-items {
   width: 33.3333%;
-  height: 480px;
   position: relative;
   cursor: pointer;
 }
@@ -334,6 +354,7 @@ body {
   object-fit: cover;
 }
 .template-content {
+  padding: 90px 100px;
   transition: all linear 0.4s;
   opacity: 0;
   color: #fff;
@@ -348,7 +369,6 @@ body {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
-  padding: 90px 100px;
   text-align: center;
 }
 .template .heading {
@@ -373,9 +393,21 @@ body {
   text-overflow: ellipsis;
   word-break: break-word;
 }
+@media only screen and (max-width: 1600px) {
+  .template-content {
+    padding: 20px 50px;
+  }
+}
 @media only screen and (max-width: 1279px) {
   .template-content {
-    display: none;
+    padding: 8px 20px;
+  }
+  .template .heading {
+    font-size: 20px;
+  }
+  .template .text {
+    font-size: 16px;
+    margin-bottom: 25px;
   }
 }
 @media only screen and (max-width: 1023px) {
