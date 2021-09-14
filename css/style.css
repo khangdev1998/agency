@@ -21,7 +21,7 @@ body {
   font-weight: bold;
   font-size: 48px;
   color: #000;
-  line-height: calc(48 / 36);
+  line-height: 1.3333333333;
   word-break: break-all;
 }
 @media only screen and (max-width: 1023px) {
@@ -40,7 +40,7 @@ body {
   font-weight: 300;
   color: #949494;
   font-size: 18px;
-  line-height: calc(30/ 18);
+  line-height: 1.6666666667;
 }
 @media only screen and (max-width: 1023px) {
   .text {
@@ -106,22 +106,31 @@ body {
   font-size: 28px;
   display: none !important;
 }
-.header-top__menu {
+.header-menu__list {
   list-style-type: none;
+  margin-top: 60px;
 }
-.header-top__items {
+.header-menu__close {
+  display: none !important;
+  font-size: 28px;
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+}
+.header-menu__items {
   display: inline-block;
 }
-.header-top__items:not(:first-child) {
+.header-menu__items:not(:first-child) {
   margin-left: 34px;
 }
-.header-top__link {
+.header-menu__link {
   font-size: 18px;
   font-weight: 400;
   color: #000;
   text-decoration: none;
 }
-.header-top__link--border {
+.header-menu__link--border {
   border: 1.5px solid #424344;
   border-radius: 28px;
   padding: 10px 22px;
@@ -149,26 +158,33 @@ body {
   .header-top__bars {
     display: block !important;
   }
-  .header-top__menu {
+  .header-menu {
     background-color: white;
     width: 100%;
     height: 100%;
-    max-width: 350px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    max-width: 300px;
     position: fixed;
     top: 0;
-    right: -100%;
-    z-index: 99999;
-    display: flex;
-    align-items: stretch;
-    justify-content: flex-start;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    right: 0;
+    transform: translateX(100%);
+    transition: all ease-in-out 0.4s;
+    z-index: 100000000000000030000000;
   }
-  .header-top__items:not(:nth-child(9999)) {
+  .header-menu.open-menu {
+    transform: translateX(0);
+  }
+  .header-menu__close {
+    display: block !important;
+  }
+  .header-menu__items {
+    display: block;
+  }
+  .header-menu__items:not(:nth-child(9999)) {
     margin-left: 0;
     padding: 20px;
   }
-  .header-top__link--border {
+  .header-menu__link--border {
     border: none;
     padding: 0;
   }
@@ -179,6 +195,7 @@ body {
     color: white;
   }
 }
+
 .best {
   margin-top: -150px;
   display: flex;
@@ -240,7 +257,7 @@ body {
   text-align: center;
 }
 .wedo-list {
-  margin-bottom: calc(var(--mb-wedo) * (-1));
+  margin-bottom: calc(var(--mb-wedo) * -1);
   padding-top: 90px;
   display: flex;
   align-items: stretch;
